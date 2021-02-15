@@ -16,6 +16,7 @@ import RequestForm from './pages/RequestForm';
 import RequestsList from './pages/RequestsList';
 import Request from './pages/Request';
 import NotFound from './pages/NotFound';
+import apiClient from "./services/apiClient"
 import './App.css';
 
 // This example has a few pages, most of the private 
@@ -112,17 +113,23 @@ function useProvideAuth() {
   const [user, setUser] = useState(null);
 
   const signin = cb => {
-    return fakeAuth.signin(() => {
-      setUser("user");
-      cb();
-    });
+      apiClient
+        .login({username: "lola", password: "hola"})
+        .then(({ data }) => {
+          setUser(data);
+          cb();
+        })
+        .catch(); 
   };
 
   const signout = cb => {
-    return fakeAuth.signout(() => {
-      setUser(null);
-      cb();
-    });
+    apiClient
+        .logout()
+        .then(() => {
+          setUser(null);
+          cb();
+        })
+        .catch(); 
   };
 
   return {
