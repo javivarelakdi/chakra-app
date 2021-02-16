@@ -25,8 +25,8 @@ export default function UsersList() {
     useEffect(() => {
         apiClient
             .getUsers()
-            .then(({ data }) => {
-                setUsersList(data);
+            .then(({data}) => {
+                setUsersList(data.data);
             })
             .catch(); 
     }, [])
