@@ -5,7 +5,7 @@ class ApiClient {
     this.apiClient = axios.create({
       //baseURL: process.env.REACT_APP_BACKEND_URI,
       baseURL: "http://localhost:8080",
-      swithCredentials: true,
+      withCredentials: true
     });
   }
 
