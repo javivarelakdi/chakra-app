@@ -38,9 +38,9 @@ export default function UsersList() {
                 <Thead>
                     <Tr>
                         <Th>username</Th>
-                        <Th isNumeric>remaining days</Th>
                         <Th>role</Th>
-                        <Th>role</Th>
+                        <Th>remaining days</Th>
+                        <Th></Th>
                     </Tr>
                 </Thead>
                 <Tbody>
@@ -48,7 +48,7 @@ export default function UsersList() {
                         <Tr>
                             <Td>{user.username}</Td>
                             <Td>{user.role}</Td>
-                            <Td isNumeric>{user.remainingDays}</Td>
+                            <Td>{user.remainingDays}</Td>
                             <Td><Button onClick={() => handleRedirect(user._id)}>go to user</Button></Td>
                         </Tr>
                     )})}      
